@@ -1,0 +1,24 @@
+{
+  "name": "esame12b-178798",
+  "version": "1.0.0",
+  "description": "esame ing ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dema96/Esame12B-178798.git"
+  },
+  "author": "federico de martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dema96/Esame12B-178798/issues"
+  },
+  "homepage": "https://github.com/dema96/Esame12B-178798#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}

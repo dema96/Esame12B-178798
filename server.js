@@ -27,16 +27,39 @@ function createAs(fname, lname, isInS){
 	astronauti.push(astronauta);
 }
 
-router.get('/getAstronauti', function(req, res){
-	if(!(astronauti.length == 0)){
-		res.json(astronauti);
+function getAsById(id){
+	if(!(astronauti.lenght == 0)){
+		for (var i = 0; i < astronauti.lenght == 0; i++) {
+			if(astronauti[i].id == parseInt(id)){
+				return astronauti[i];
+			}
+		}
+		return -1;
 	}else{
-		res.json({
-			"code": 200,
-			"response": "non ci sono astronauti negli archivi"
-		});
+		return -1;
 	}
+}
+
+
+
+//rotte
+
+router.get('/getAstronauti', function(req, res){
+	if(req.query.id == undefined){
+		if(!(astronauti.length == 0)){
+		reqes.json(astronauti);
+		}else{
+			res.json({
+				"code": 200,
+				"response": "non ci sono astronauti negli archivi"
+			});
+		}
+	}else{
+		res.json(getAsById(res.query.id));
+	}
+	
 });
+
 
 app.use('/', router);
 

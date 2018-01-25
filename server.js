@@ -80,6 +80,29 @@ router.get('/getAstronauti', function(req, res){
 	
 });
 
+router.get('/getAstronauti/:id', function(req, res){
+	var id = req.params.id;
+	if(id == undefined){
+		if(!(astronauti.length == 0)){
+		res.json(astronauti);
+		}else{
+			res.json({
+				"code": 200,
+				"response": "non ci sono astronauti negli archivi"
+			});
+		}
+	}else{
+		
+		if(getAsById(id) == -1){
+			res.send("id non trovato");
+		}else{
+			res.json(astronauti[getAsById(id)]);
+		}
+		
+	}
+	
+});
+
 router.post('/addAstronauta', function(req, res){
 	if(req.body.firstname != undefined && req.body.lastname!= undefined && (req.body.isInSpace == "false" || req.body.isInSpace == "true")){
 		createAs(req.body.firstname, req.body.lastname, req.body.isInSpace);
